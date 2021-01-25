@@ -1,0 +1,221 @@
+html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+
+html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+
+*, *:before, *:after {box-sizing: inherit}
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+.wrapper {
+   max-width: 1200px;
+   width: 85%;
+   margin: 0 auto;
+}
+
+body {
+    height: 100vh;
+}
+
+nav, footer {
+    height: 95px;
+    background-color: red;
+}
+
+nav {
+    border-bottom: 10px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+}
+
+h1.title, h2.title {
+    color: lightgray;
+    margin: 20px;
+    text-align: center;
+}
+
+h1.title {
+    font-size: 40px;
+}
+
+h2.title {
+    font-size: 20px;
+}
+
+footer {
+    border-top: 10px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 50px;
+}
+
+.juno a {
+    text-decoration: none;
+}
+
+main {
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+}
+
+button, .juno {
+    background-color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+    width: 150px;
+    margin: 5px;
+}
+
+.juno {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+button:hover,
+button:focus,
+.juno:hover,
+.juno:focus,
+input[type=text]:hover,
+input[type=text]:focus {
+    background-color: rgb(201, 240, 241);
+}
+
+input[type=text] {
+    border: none;
+    background-color: white;
+    padding-left: 10px;
+    transition: all 0.3s ease;
+}
+
+label {
+    display: none;
+}
+
+/* BEHOLD MY SORCERY. I HAVE MADE SPINNY CARDS. I HAVE INVOKED THAT MOST ENTRENCHED OF DEEP POWERS, THE ROOT, AND IT HAS GIFTED ME SPLENDOURS UNDREAMT OF. */
+
+/* Splendours being said, I cannot for the life of me figure out how to accomplish these spin moves and also enable a hover that spins the cards right-side up. */
+
+:root {
+    --card-rotation: 0deg;
+}
+
+.pokeCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 450px;
+    width: 350px;
+    padding: 5px 10px;
+    margin: 20px;
+    box-shadow: 10px 10px 10px black;
+    border: 15px solid khaki;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: absolute;
+    animation-name: cardfall;
+    animation-duration: 0.6s;
+}
+
+@keyframes cardfall {
+    0% {
+        transform: scale(10);
+    }
+    100% {
+        transform: scale(1) rotate(--card-rotation);
+    }
+}
+
+.pokeCard:hover {
+    scale: 2;
+    z-index: 10;
+}
+
+.pokeName {
+    background: whitesmoke;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 170px;
+    margin: 5px;
+    margin-left: 6px;
+    align-self: flex-start;
+}
+
+.pokePic-container {
+    border: 5px solid black;
+    background-color: whitesmoke;
+    height: 200px;
+    width: 290px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokePic {
+    height: 80%;
+}
+
+.pokePic.shiny {
+    background: radial-gradient(circle, rgba(243,251,63,1) 0%, rgba(252,252,70,0) 100%);
+}
+
+.pokeMoves-container {
+    margin-top: 10px;
+    height: 150px;
+    width: 290px;
+    border: 5px solid black;
+    background-color: whitesmoke;
+    display: grid;
+}
+
+.move {
+    font-size: 15px;
+}
+
+.move-box {
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin: 10px;
+    width: 120px;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.move-0 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.move-1 {
+    grid-row: 1 / 2;
+    grid-column: 2 / 2;
+}
+
+.move-2 {
+    grid-row: 2 / 2;
+    grid-column: 1 / 2;
+}
+
+.move-3 {
+    grid-row: 2 / 2;
+    grid-column: 2 / 2;
+}
